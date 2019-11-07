@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\Http\Request\ReminderRequest;
+use App\Http\Requests\ReminderRequest;
 use Session, Event;
 use Sentinel, Reminder;
 use App\Events\ReminderEvent;
@@ -33,6 +33,7 @@ class ReminderController extends Controller
 
     public function edit($id, $code)
     {
+        
         $user = Sentinel::findById($id);
         if (Reminder::exists($user, $code)) {
             return view('reminders.edit', ['id'=> $id, 'code'=>$code]);

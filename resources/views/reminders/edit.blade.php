@@ -8,7 +8,7 @@
                 <div class="panel-heading">Reset Password</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('reminders.update', $id, $code) }}">
+                    <form class="form-horizontal" method="POST" action="{{route('reminders.edit',['id'=>$id,'code'=>$code ]) }}">
                         {{ csrf_field() }}
 
                         {{--  <input type="hidden" name="token" value="{{ $token }}">  --}}

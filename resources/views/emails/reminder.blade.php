@@ -15,7 +15,11 @@
         if you dont please ignore this email, <br>
         but if you do, please click link below for futher instruction. 
     </p>
-    <a href="{{ route('reminders.edit',['id'=>$detail['id'], 'code' =>$detail['code']]) }}">Click Me</a>
+    <?php
+    $id = $detail['id'];
+    $code = $detail['code']; 
+    ?>
+    <a href="{{ route('reminders.edit',['id'=>$id ,'code'=>$code ]) }}">Click Me</a>
     <h2>Thanks</h2>
 </body>
 </html>

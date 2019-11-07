@@ -17,7 +17,7 @@ class ReminderMailable extends Mailable
      * @return void
      */
     public $detail;
-     public function __construct()
+     public function __construct($detail)
     {
         $this->detail = $detail;
     }
@@ -29,6 +29,7 @@ class ReminderMailable extends Mailable
      */
     public function build()
     {
-        return $this->from('admin@md.com')->subject('MD - Request Reset Password')->view('emails.reminder')->with(['detail' => $this->detail,]);
+
+        return $this->from('admin@md.com')->subject('MD - Request Reset Password')->view('emails.reminder')->with(['detail' => $this->detail]);
     }
 }
