@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jobs\JobPertama;
+use App\Jobs\JobKedua;
 
 class HomeController extends Controller
 {
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -25,5 +27,12 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(['employee','manager']);
         return view('home');
+    }
+
+    public function tesJob(Request $request)
+    {
+        JobPertama::dispatch('belajar queue dengan');
+        JobKedua::dispatch('laravel');
+        return 'berhasil';
     }
 }

@@ -9,7 +9,7 @@
                 <p class="tm-form-description">Silakan Masukkan Data Artikel Baru.</p> 
 
 
-                <form action="{{url('/simpan')}}" method="post" class="tm-contact-form">
+                <form action="{{url('/simpan')}}" method="post" class="tm-contact-form" enctype="multipart/form-data">
                 {{ csrf_field() }}                                
                 <div class="form-group">
                     <input type="text" id="title" name="title" class="form-control" placeholder="Title"  required/>
@@ -19,6 +19,9 @@
                 </div>
                 <div class="form-group">
                     <input type="text" id="author" name="author" class="form-control" placeholder="Author"  required/>
+                </div>
+                <div class="form-group">
+                    <input type="file" id="article_image" name="article_image" class="form-control" placeholder="Author"  required/>
                 </div>
     
                 <button type="submit" class="tm-btn">Submit</button>                          

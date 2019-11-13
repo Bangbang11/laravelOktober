@@ -12,9 +12,10 @@ http://www.templatemo.com/tm-488-classic
 -->
     <!-- load stylesheets -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400">  <!-- Google web font "Open Sans" -->
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->
+    <link rel="stylesheet" href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}">                                      <!-- Bootstrap style -->
     <link rel="stylesheet" href="{{asset('css/templatemo-style.css')}}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">                                   <!-- Templatemo style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">                                   <!-- Templatemo style -->
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,9 +79,9 @@ http://www.templatemo.com/tm-488-classic
                         
                     </div>
 
-                    <!-- Add the extra clearfix for only the required viewport 
+                    {{-- Add the extra clearfix for only the required viewport 
                         http://stackoverflow.com/questions/24590222/bootstrap-3-grid-with-different-height-in-each-item-is-it-solvable-using-only
-                    -->
+                     --}}
                     <div class="clearfix hidden-lg-up"></div>
 
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-xl-3">
@@ -129,9 +130,11 @@ http://www.templatemo.com/tm-488-classic
         </footer>
 
         <!-- load JS files -->
-        <script src="{{asset('js/jquery-1.11.3.min.js')}}"></script>             <!-- jQuery (https://jquery.com/download/) -->
-        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> <!-- Tether for Bootstrap, http://stackoverflow.com/questions/34567939/how-to-fix-the-error-error-bootstrap-tooltips-require-tether-http-github-h --> 
-        <script src="{{asset('js/bootstrap.min.js')}}"></script>                 <!-- Bootstrap (http://v4-alpha.getbootstrap.com/) -->
-       
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script> 
+        <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>     
+        <script src="{{asset('js/custom.js')}}"></script>
+
 </body>
 </html>

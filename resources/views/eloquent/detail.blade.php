@@ -50,34 +50,24 @@
                     </div>
                         
                     @endif
-                    <form action="{{route('comments.store')}}" method="post" class="tm-contact-form">
+                    <form class="comment_form tm-contact-form">
                     {{ csrf_field() }}
                     <label for="article_id">Title</label>
                     <input type="number" class="form-control" value="{{$article->id}}" name="article_id" id="article_id"><br/>
                     <label for="">Content</label>
                     <textarea name="content" id="content" cols="30" rows="10" class="form-control"></textarea><br/>
                     <label for="">User</label>
-                    <input type="text" name="user" id="user" class="form-control"><br/>
-                    <input type="submit" class="btn btn-success" value="save">
+                    <input type="text" name="user" id="user" class="form-control" value="{!!Sentinel::getUser()->email!!}"><br/>
+                    <button id="comment" class="comment btn btn-success" type="button">Simpan</button>
                     </form>
                 </div>
             </div>
         </div>
         <br/>
-        <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9 col-xl-9">
-                    <div class="container-fluid">
-                    @foreach ($comments as $item)
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <p>{!! $item->user!!}</p>
-                            <p>{!! $item->content!!}</p>
-                        </li>
-                    </ul>
-                    @endforeach
-                    </div>
-                </div>
+        <div class="comments_list">
+            @include('ajaxLoyout.comments_list')
         </div>
+
     </div>
 
     </div>

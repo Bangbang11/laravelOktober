@@ -9,7 +9,7 @@
                 <p class="tm-form-description">Silakan Masukkan Data Artikel yang akan di Rubah.</p> 
 
 
-                <form action="{{url('/update', $article->id)}}" method="post" class="tm-contact-form">
+                <form action="{{url('/update', $article->id)}}" method="post" enctype="multipart/form-data" class="tm-contact-form">
                 {{ csrf_field() }}{{ method_field('put')}}
                 <div class="form-group">
                     <input type="text" id="title" name="title" class="form-control" placeholder="Title" value="{{ $article->title}}" required/>
@@ -19,6 +19,9 @@
                 </div>
                 <div class="form-group">
                     <input type="text" id="author" name="author" class="form-control" placeholder="Author" value="{{$article->author}}" required/>
+                </div>
+                <div class="form-group">
+                    <input type="file" id="article_image" name="article_image" class="form-control" placeholder="Author"  required/>
                 </div>
     
                 <button type="submit" class="tm-btn">Submit</button>                          

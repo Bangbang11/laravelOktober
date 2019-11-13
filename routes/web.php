@@ -12,13 +12,13 @@
 */
 
 Route::get('/', 'HomesController@index');
-Route::get('/post', 'HomesController@post')->name('blog');
+// Route::get('/post', 'HomesController@post')->name('blog');
 Route::get('/contact', 'HomesController@contact')->name('contact');
-Route::post('/kirim','HomesController@simpan');
+Route::post('/kirim','HomesController@simpan')->name('simpan');
 Route::get('/newForm','HomesController@newForm')->name('newForm');
-Route::post('/simpan','HomesController@store');
-Route::get('/formEdit/{id}','HomesController@editForm');
-Route::put('/update/{id}','HomesController@updateForm');
+Route::post('/simpan','HomesController@store')->name('store');
+Route::get('/formEdit/{id}','HomesController@editForm')->name('formEdit');
+Route::put('/update/{id}','HomesController@updateForm')->name('formUpdate');
 Route::get('/hapus/{id}','HomesController@hapus');
 Route::get('/detail/{id}','HomesController@show')->name('detail');
 Route::resource('/tampil','ArticlesController');
@@ -48,3 +48,9 @@ Route::post('reset-password/{id}/{token}','ReminderController@update')->name('re
 Route::get('/beranda', 'SessionsController@beranda')->name('beranda');
 
 Route::get('logout','SessionsController@logout')->name('logout');
+
+Route::group(['prefix'=>'admin', 'middleware'=>['sentinel','hasAdmin']], function(){
+    Route::get('/post', 'HomesController@post')->name('blog');
+    Route::get('/dashboard','Admin\DashboardAdminController@index')->name('admin.articles.list');
+    Route::get('/tesJoB','HomeController@tesJob')->name('tesJob');
+});

@@ -43,10 +43,12 @@ class CommentController extends Controller
             ->withErrors($validate)
             ->withInput();
         } else {
-        
             Comment::create($request->all());
+            $article = Article::where('article_id',$request->article_id)->orderBy('created_at','desc');
+            $comments = Comment::where('article_id',$request->article_id)->get()->sortBy('created_at')->paginate(2);
             Session::flash('notice','Success add comment');
-            return Redirect::to('detail/'.$request->article_id);
+            $view = (string) view('ajaxLoyout.comments_list')->with('comments', $comments)->render();
+            return response()->json(['view'=>$view,'status'=>'success']);
         }
     }
 

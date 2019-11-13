@@ -1,0 +1,1 @@
+Selamat {{$user->first_name}},  anda telah terdaftar di situs kami

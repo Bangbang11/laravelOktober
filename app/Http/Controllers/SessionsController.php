@@ -25,7 +25,11 @@ class SessionsController extends Controller
     {
         if ($user = Sentinel::authenticate($request->all())) {
             Session::flash('notice','Welcome '.$user->email);
-            return redirect()->route('beranda');
+            if (Sentinel::getUser()->roles()->first()->slug == 'admin') {
+                return redirect()->route('blog');
+            }
+            return redirect('beranda');
+            // return redirect()->route('beranda');
         } else {
             Session::flash('error','Login Fails');
             return view('sessions.login');
